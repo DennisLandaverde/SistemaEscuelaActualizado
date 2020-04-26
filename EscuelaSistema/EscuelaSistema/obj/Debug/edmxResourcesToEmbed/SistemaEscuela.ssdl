@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SistemaEscolarModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Director">
+    <Key>
+      <PropertyRef Name="IdDirector" />
+    </Key>
+    <Property Name="IdDirector" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreDirector" Type="varchar" MaxLength="50" />
+    <Property Name="ContraseñaDi" Type="varchar" MaxLength="50" />
+    <Property Name="NombreUsuarioDi" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Docente">
+    <Key>
+      <PropertyRef Name="IdDocente" />
+    </Key>
+    <Property Name="IdDocente" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreDocente" Type="varchar" MaxLength="50" />
+    <Property Name="ContraseñaD" Type="varchar" MaxLength="50" />
+    <Property Name="SexoDocente" Type="varchar" MaxLength="50" />
+    <Property Name="NombreUsuarioD" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Estudiante">
+    <Key>
+      <PropertyRef Name="IdEstudiante" />
+    </Key>
+    <Property Name="IdEstudiante" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NIE" Type="int" Nullable="false" />
+    <Property Name="NombreEstudiante" Type="varchar" MaxLength="50" />
+    <Property Name="SexoEstudiante" Type="varchar" MaxLength="50" />
+    <Property Name="NombreUsuarioE" Type="varchar" MaxLength="50" />
+    <Property Name="ContraseñaE" Type="varchar" MaxLength="50" />
+    <Property Name="Edad" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Materia">
+    <Key>
+      <PropertyRef Name="IdMateria" />
+    </Key>
+    <Property Name="IdMateria" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NombreMateria" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Notas">
+    <Key>
+      <PropertyRef Name="IdNotas" />
+    </Key>
+    <Property Name="IdNotas" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nota" Type="decimal" Precision="3" Scale="1" />
+    <Property Name="IdMateria" Type="int" Nullable="false" />
+    <Property Name="IdEstudiante" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__Notas__IdEstudia__52593CB8">
+    <End Role="Estudiante" Type="Self.Estudiante" Multiplicity="1" />
+    <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Estudiante">
+        <PropertyRef Name="IdEstudiante" />
+      </Principal>
+      <Dependent Role="Notas">
+        <PropertyRef Name="IdEstudiante" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Notas__IdMateria__5165187F">
+    <End Role="Materia" Type="Self.Materia" Multiplicity="1" />
+    <End Role="Notas" Type="Self.Notas" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Materia">
+        <PropertyRef Name="IdMateria" />
+      </Principal>
+      <Dependent Role="Notas">
+        <PropertyRef Name="IdMateria" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="SistemaEscolarModelStoreContainer">
+    <EntitySet Name="Director" EntityType="Self.Director" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Docente" EntityType="Self.Docente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Estudiante" EntityType="Self.Estudiante" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Materia" EntityType="Self.Materia" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Notas" EntityType="Self.Notas" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Notas__IdEstudia__52593CB8" Association="Self.FK__Notas__IdEstudia__52593CB8">
+      <End Role="Estudiante" EntitySet="Estudiante" />
+      <End Role="Notas" EntitySet="Notas" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Notas__IdMateria__5165187F" Association="Self.FK__Notas__IdMateria__5165187F">
+      <End Role="Materia" EntitySet="Materia" />
+      <End Role="Notas" EntitySet="Notas" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

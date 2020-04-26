@@ -1,0 +1,57 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SistemaEscolarModelStoreContainer" CdmEntityContainer="SistemaEscolarEntities">
+    <EntitySetMapping Name="Director">
+      <EntityTypeMapping TypeName="SistemaEscolarModel.Director">
+        <MappingFragment StoreEntitySet="Director">
+          <ScalarProperty Name="IdDirector" ColumnName="IdDirector" />
+          <ScalarProperty Name="NombreDirector" ColumnName="NombreDirector" />
+          <ScalarProperty Name="ContraseñaDi" ColumnName="ContraseñaDi" />
+          <ScalarProperty Name="NombreUsuarioDi" ColumnName="NombreUsuarioDi" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Docente">
+      <EntityTypeMapping TypeName="SistemaEscolarModel.Docente">
+        <MappingFragment StoreEntitySet="Docente">
+          <ScalarProperty Name="SexoDocente" ColumnName="SexoDocente" />
+          <ScalarProperty Name="IdDocente" ColumnName="IdDocente" />
+          <ScalarProperty Name="NombreDocente" ColumnName="NombreDocente" />
+          <ScalarProperty Name="ContraseñaD" ColumnName="ContraseñaD" />
+          <ScalarProperty Name="NombreUsuarioD" ColumnName="NombreUsuarioD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Estudiante">
+      <EntityTypeMapping TypeName="SistemaEscolarModel.Estudiante">
+        <MappingFragment StoreEntitySet="Estudiante">
+          <ScalarProperty Name="SexoEstudiante" ColumnName="SexoEstudiante" />
+          <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+          <ScalarProperty Name="NIE" ColumnName="NIE" />
+          <ScalarProperty Name="NombreEstudiante" ColumnName="NombreEstudiante" />
+          <ScalarProperty Name="NombreUsuarioE" ColumnName="NombreUsuarioE" />
+          <ScalarProperty Name="ContraseñaE" ColumnName="ContraseñaE" />
+          <ScalarProperty Name="Edad" ColumnName="Edad" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Materia">
+      <EntityTypeMapping TypeName="SistemaEscolarModel.Materia">
+        <MappingFragment StoreEntitySet="Materia">
+          <ScalarProperty Name="IdMateria" ColumnName="IdMateria" />
+          <ScalarProperty Name="NombreMateria" ColumnName="NombreMateria" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Notas">
+      <EntityTypeMapping TypeName="SistemaEscolarModel.Notas">
+        <MappingFragment StoreEntitySet="Notas">
+          <ScalarProperty Name="IdNotas" ColumnName="IdNotas" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+          <ScalarProperty Name="IdMateria" ColumnName="IdMateria" />
+          <ScalarProperty Name="IdEstudiante" ColumnName="IdEstudiante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
